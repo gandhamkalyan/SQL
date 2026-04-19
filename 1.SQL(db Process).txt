@@ -1,0 +1,30 @@
+SQL is used to communicate vth databases.
+
+- declarative (Will tell the system what we want not how to get it)
+→ Imperative will tell computer step by step instructions)
+
+→SQL is declarative.
+------------------------------------
+Database is Organised collectin of data:
+
+- stored in a structured way
+- Can be searched efficiently
+- Can be Safely Shared by many users and application at the same time
+
+Where does DB store data :
+
+- db stores data in files on disk. 
+- These disks can be HDD (Hard disk), SSP, cloud stores
+- Inside db, data is stored in pages/blocks.
+- Frequently used pages are cached in RAM
+- DB uses B-tree/B+tree internally to search fast.
+  B-tree/B+tree for indexes
+  some times hash structure for lookups
+
+→ Page is a fixed size block of storage
+
+Select * from employees where id=3
+
+db process : 
+
+disk > Land page containing row3 >Copy Page into RAM > search inside page > Return ROW
