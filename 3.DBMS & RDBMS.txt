@@ -1,0 +1,51 @@
+DBMS-It is a software that helps you store, manage  and retrieve data from db
+
+RDBMS - it is a type of dbms where data is stored in tables and tables are related to each other .
+- Data stored as tables with rows and columns
+
+Feature                             DBMS                         RDBMS
+
+Data Structure                    Files/Simple Stryctures        Tables
+Realtionships                     Not Supported                  Supported
+Keys                              Not Used                       Primary/Foreign Keys
+Data Integrity                    Limited                        Strong
+Normalization                     Not Supported                  Supported
+Multi User Support                Limited                        Strong
+                                  (Customers.txt/orders.txt)     (MySQL,Oracel,SQL Server,SQLite)
+
+A DBMS (Database Management System) is the engine that sits between:
+
+Your applications
+And the raw data on disk
+It is responsible for everything that happens to data.
+A DBMS does not just store data. It actively manages it.
+
+A DBMS:
+Decides how data is stored on disk
+Decides who can access it
+Ensures data is not corrupted
+Handles crashes and recovery
+Manages multiple users at the same time
+Without a DBMS, you would be manually reading and writing files and any crash would destroy consistency.
+
+
+What Is an RDBMS Then?
+An RDBMS (Relational Database Management System) is a special type of DBMS designed specifically for relational data.
+
+Relational data means:
+Data is stored in tables (rows and columns)
+Tables are connected using relationships
+Rules are enforced using keys and constraints
+
+An RDBMS supports:
+Tables with fixed schemas
+Primary keys and foreign keys
+Joins between tables
+SQL as the query language
+Strong transactional guarantees
+
+So:
+DBMS - general concept
+RDBMS - DBMS built for relational databases
+All RDBMS are DBMS.
+Not all DBMS are relational.
