@@ -24,3 +24,17 @@ Where does DB store data :
 
 Select * from employees where id=3
 db process :  disk > Land page containing row3 >Copy Page into RAM > search inside page > Return ROW
+--------------------------------------------------------
+B-tree is a balanced tree Structure used to quickly locate data
+
+-Think of it like a. decision tree
+each number represents a key value in the index.
+Most databases actually uses B+ trees
+
+B-tree
+-data stored in all nodes
+- Harder ranges scan
+
+B+ tree
+-Data only in leaf  nodes
+- Very efficient range scans
