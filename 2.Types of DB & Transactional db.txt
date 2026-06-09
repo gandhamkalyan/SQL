@@ -1,0 +1,49 @@
+Types of db
+
+Relational Database. (MySQL, Postgani SQL, Oracle)
+NoSQL Db (Mognodb) JSON format
+Hierarchy db
+Network db
+Object Oriented db
+Cloud db
+Time Series db
+
+Work loads:
+OLTP (Online Transaction Processing) - fast execution 
+OLAP (Online Analytics Processing) - Slow queris
+
+
+Transactional database
+
+- It is a database designed to handle day to day operations (transactions) of an application.
+- Transactions be is a single unit of work that muste be  completed fully.
+Ex: placing orders, transferring money, booking a ticket updating inventory
+
+→ stores data in row format
+→ storges in disks inside in as pages
+→ speed up searching uses, B+ tree indexes
+
+
+Transactional Logs (very, Important)
+- Transactional  db also Stores transaction logs.
+- if system Crashes ,system can recover using logs
+
+
+ACID Properties 
+
+Atomocity - Transaction happen fully or not at all
+Consistency - Data remains valid (db rules)
+Isolation - Transaction don't interfere
+Durability - Once committed, data is permanent (Commited changes ave never lost)
+
+
+what happens when you run a transaction?
+Starts → reads the rows > applies changes > ensure isolation> writes to transaction logs > commit
+
+Ensure isolation - let's say you are changing a row then it make sures no one to allow to make the changes 
+
+If it doesn't commit it will roles back to previous version 
+
+How will it handles multiples users at once?
+whenever the first person get's lock , have to wait until he finishes the changes.
+MVCC (Musti, Version Concurrency Control)
