@@ -31,10 +31,10 @@ Transactional Logs (very, Important)
 
 ACID Properties 
 
-Atomocity - Transaction happen fully or not at all
-Consistency - Data remains valid (db rules)
-Isolation - Transaction don't interfere
-Durability - Once committed, data is permanent (Commited changes ave never lost)
+Atomocity - Transaction happen fully or not at all ( If a transaction happens it happens entirely or it fails entirely)
+Consistency - Data remains valid (db rules never be skipped, for example if a column I named it as Primary Key if any row tries to break it it will say no)
+Isolation - Transaction don't interfere(When multiple people tries to change, need to make sure data is not corrputed)
+Durability - Once committed, data is permanent (Commited changes are never lost)
 
 
 what happens when you run a transaction?
