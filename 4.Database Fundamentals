@@ -1,0 +1,57 @@
+Database Fundamentals
+
+> SQL commands are used to communicate with db.
+
+Data Definition Language (DDL):-Create, Alter, Drop, Truncate, Rename
+Data Manipulation Language (DML)!-Insert, Update, Delete, Modify.
+Data Query Language: Select
+Data control language: Grant, Revoke
+Transactional control Language: Commit, Rollback, Save point
+
+Database Setup :
+Create database
+drop database
+Use database
+Show database
+If not exists
+
+Common SQL Data Types 
+> Data types define what kind of data a column can store in a table
+
+Data Type                         What It Stores                                   Typical Uses
+INT                           Whole Whole numbers(no decimals)                   IDs (user_id, order_id), counts (quantity, attempt_count), ages
+BIGINT                        Very large whole numbers                           Huge row counts, global counters, high-traffic logs
+VARCHAR(n)                    Variable-length text up top characters             Names, emails, usernames, short labels
+TEXT                          Long, unbounded text                               Product descriptions, blog posts, long reviews
+Date                          Calendar date only (YYYY-MM-DD)                    Birthdate, signup date, holidays, due dates
+DateTime/Timestamp            Date + time (optionally timezone/offset)           Order creation time, payment time, login timestamps, event logs
+Boolean                       True/false flags is_active,                        is_admin, email_verified
+Decmial/Numeric               Exact fixed-precision numbers                      Prices, account balances, precise financial or scientific values
+
+Relational Data : Primary & Foreign key
+-relational db are  called relational because tables are realted to each other.
+
+Primary Key(PK)
+- uniquely identifies each row
+-No duplicates & usually not null
+
+Foreign Key(FK)
+- refers to primary key in another table
+- It creates relation btw tables
+
+Composite primary key: It is a primary key made up of 2 or  more columns together
+- If we have multiple Primary keys the execution will be kind a slow and also takes more memory than single Primary Key 
+-------------------------------------------------------------------------
+
+Constraints
+
+> COnstraints are rules applied to table columns to control what data can be stored
+> It make sures only valid and correct data enters into db
+
+id    name   age
+1     ram    23
+2     sara   -5
+- Constraints prevent this 
+
+Why do we need Constraints
+Reason 
