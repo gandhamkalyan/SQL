@@ -54,4 +54,44 @@ id    name   age
 - Constraints prevent this 
 
 Why do we need Constraints
-Reason 
+Reason                               Explanation
+Data Accuracy                       Prevent wrong data
+Data Integrity                      Maintain consistent data
+Avoid Duplicates                    Ensure unique values
+Define Relationships                Connect tables properly
+
+Types of Constraints:
+
+1. Not Null : Column cannot contains Null Values
+2. Unique : All vlaues must be different
+3. Primary Key : Uniquely identifies each row
+4. Foreign Key : Lint btw 2 tables
+5. Check : Ensure a condition is satisfied
+6. Default : Assigns a default value
+7. Auto Increment
+---------------------------------------------------------
+NULL vs 0 vs Empty String
+Null : No value , unknown , Not Applicable
+- It doesn't mean zero, it is not empty string
+- You can think of it like a blank sapce where a value could be but currently it isn't.
+
+Zero : it is a number and a valid value not nothing
+-------------------------------------------------------
+Query Life Cycle
+
+When you run a SQL query, the database does not just "instantly” give results. Internally, it follows a query lifecycle with three big steps:
+- Parse
+- Plan
+- Execute
+You don't control these steps directly, but understanding them helps a lot when you learn about performance and query optimization later.
+
+Parse : Parsing is the step where the database checks whether your SQL is written correctly (syntax check). Understands what you are asking for.
+Plan : Planning (also called query optimization) is the step where the database, figures out how to execute your query in the fastest or most efficient way.
+Execute : Execution is the step where the database, actually runs the chosen execution plan and reads physical data from disk/memory. 
+Applies filters, joins (if multiple tables), sorting, grouping/aggregation. Sends the final result back to you or your application.
+--------------------------------------------------------
+What is an Index in a Database?
+An index in a database is a special data structure (often a B-tree or similar) that is built on one or more columns of a table to make searching faster. 
+Instead of scanning every row in the table, the database uses the index to jump directly to the matching rows, just like a book index.
+Imagine you have a 1000-page book with no index. You want to find the topic "Binary Search Tree", you might have to flip through many pages, 
+you don't know exactly where it appears. This is slow and tiring.
