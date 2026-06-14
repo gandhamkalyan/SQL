@@ -1,0 +1,130 @@
+Logical Execution Order in SQL:
+FROM (pick table)
+WHERE (filter rows before grouping)
+GROUP BY (make groups)
+Aggregate functions (SUM, AVG, COUNT, etc.)
+HAVING (filter groups after aggregation)
+SELECT (final projection)
+ORDER BY (final sort)
+
+
+Basic SQL Commands
+SELECT  -- Specifies the columns to retrieve from a table(which columns to show)
+FROM  --- where to read data from
+WHERE  --- which rows to keep(Filters the data)
+ORDER BY  -- how to sort 
+LIMIT/OFFSET  --- how many rows to return
+DISTINCT  --- whether to remove duplicates
+AS (Alias) --- how to rename columns/tables in the output
+
+
+Filtering Conditions
+IS NULL - IS NULL checks whether a column's value is unknown (NULL)
+IS NOT NULL : IS NOT NULL checks whether a column's value is present (not NULL).
+
+IN : IN checks if a value matches any one value from a list.
+NOT IN : NOT IN checks if a value matches none of the values in the list.
+
+BETWEEN : BETWEEN checks if a value lies within a range (inclusive).
+NOT BETWEEN : NOT BETWEEN checks if a value lies outside that inclusive range.
+
+LIKE: LIKE matches text patterns (useful for searching).
+Wildcards:
+% = any number of characters (including 0)
+= exactly one character
+
+NOT LIKE : NOT LIKE excludes text that matches the pattern.
+
+
+Data Summarization
+EXcexution Order : FROM > Where > Group BY > Aggragate > Having  > Select
+1. GROUP BY
+GROUP BY divides rows into groups based on one or more columns, and then aggregate functions (SUM, AVG, ...) operate within each group.
+Put similar values into separate buckets (groups), then perform calculations on each bucket.
+Ex: List all unique projects
+This query groups all rows by the project column and returns one row per project.
+Even though no aggregation function is used, GROUP BY ensures that: 
+> Duplicate project names are merged into a single group. 
+> Each project appears once in the result.
+Use-case: When you want to see all distinct projects in the company.
+SELECT column_name,
+       aggregate_function(column_name)
+FROM table_name
+GROUP BY column_name;
+
+Step 1: Read rows
+Laptop 50000
+Mobile 20000
+Laptop 60000
+Mobile 15000
+Tablet 10000
+
+Step 2: Create groups
+Laptop → [50000,60000]
+Mobile → [20000,15000]
+Tablet → [10000]
+
+Step 3: Apply SUM()
+Laptop → 110000
+Mobile → 35000
+Tablet → 10000
+
+Aggregate Functions Used with GROUP BY
+1. SUM() -- Total value.
+2. COUNT() -- Count rows.  In geenral it will count null and returns . If we specify any particular column that will ignores the nulls and count
+3. AVG() --- Average value.   It won't considers null while calcualting
+4. MAX() --- Highest value.
+5. MIN() --- Lowest value.
+
+Having : HAVING filters groups after aggregation, similar to how WHERE filters individual rows before aggregation. 
+You use HAVING when your condition depends on an aggregated value.
+
+WHERE : Filters individual rows.
+HAVING : Filters groups created by GROUP BY.
+
+Difference Between WHERE and HAVING
+
+| WHERE                          | HAVING                      |
+| ------------------------------ | --------------------------- |
+| Filters rows                   | Filters groups              |
+| Before GROUP BY                | After GROUP BY              |
+| Cannot use aggregate functions | Can use aggregate functions |
+| Works on raw data              | Works on grouped data       |
+
+How SQL Executes HAVING Internally
+
+Suppose:
+
+SELECT Product,
+       SUM(Sales)
+FROM SalesTable
+GROUP BY Product
+HAVING SUM(Sales) > 50000;
+
+Step 1: Read Rows
+Laptop 50000
+Laptop 60000
+Mobile 20000
+Mobile 15000
+Tablet 10000
+
+Step 2: Create Groups
+Laptop → [50000,60000]
+Mobile → [20000,15000]
+Tablet → [10000]
+
+Step 3: Calculate SUM
+Laptop → 110000
+Mobile → 35000
+Tablet → 10000
+
+Step 4: Apply HAVING
+110000 > 50000 ✅
+35000 > 50000 ❌
+10000 > 50000 ❌
+
+Step 5: Return Result
+Product	TotalSales
+Laptop	110000
+
+
